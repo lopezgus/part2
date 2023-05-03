@@ -26,7 +26,6 @@ const App = () => {
   return (
     <div>
       <Course course={course} />
-      <Total sum={course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises} />
     </div>
   )
 }
