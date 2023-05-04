@@ -1,5 +1,4 @@
 import React from 'react';
-import Total from './components/Total';
 import Course from './components/Course';
 import './App.css';
 
