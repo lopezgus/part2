@@ -1,13 +1,18 @@
 import React from 'react';
 
-const Parts = ({ parte , exercises }, i) => {
- 
-  return (
+const Parts = ({ partes }) => {
   
-    <ul key = {i}>
-      <p> {parte}  {exercises} </p>
-    </ul>
-  
-  )
-}
+  return ( 
+    <div>
+      {partes.map( (part, i) => {
+        return (
+          <div key={i}>
+            <p> {part.name}  {part.exercises} </p>
+          </div>
+        )
+      })}
+    </div>
+  );  
+};
+
 export default Parts
