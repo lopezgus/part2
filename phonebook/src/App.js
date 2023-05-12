@@ -13,8 +13,6 @@ const App = () => {
   const [newFilter, setNewFilter] = useState('');
   const [filterPersons, setFilterPersons] = useState([]);
   
-//debug
-  //console.log("debug", persons);
 
 // React Componet
   const Personas = ({ persona }) => {
@@ -34,13 +32,9 @@ const App = () => {
   //handler of filter
   const handlenewFilter = (event) => {
     setFilterPersons( persons.filter(person =>{
-//debug
-//      console.log('person',person)
       return person.name.toLowerCase().includes(event.target.value.toLocaleLowerCase());
       }))
     setNewFilter(event.target.value);
-//debug
-//    console.log('filterPerson:'.filterPersons)
   }
 
 
@@ -74,8 +68,6 @@ const App = () => {
     setNewNumber('');
     setFilterPersons([]);
     
-//Debug
-    //console.log("personas", persons)
   }
   // -----------------------------
   
@@ -104,31 +96,16 @@ const App = () => {
         <div>
           {!(filterPersons.length===0 && newFilter === '') ? 
               filterPersons.map((person, i) =>{
-//debug
-//                console.log((filterPersons.length===0 || newFilter === ''))
-//                console.log ('length', filterPersons.length)
-//                console.log('newFilter:', newFilter)
                return <Personas key={i} persona={person} />}
               ) 
             : 
               persons.map((person, i) =>{
-//debug
-//                console.log('otro-boolean', !(filterPersons.length===0 && newFilter === ''))
-//                console.log ('length-otro', filterPersons.length)
-//                console.log('newFilter-otro:', newFilter)                
                 return <Personas key={i} persona={person} />}
               ) 
           }
         </div>
       </>
-{/* Debug
-      <div>
-        <p> debug NewName: {newName}</p>
-        
-      </div>
-*/}
     </div>
-
   )
 }
 
