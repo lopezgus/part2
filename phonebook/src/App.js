@@ -35,12 +35,12 @@ const App = () => {
   const handlenewFilter = (event) => {
     setFilterPersons( persons.filter(person =>{
 //debug
-      console.log('person',person)
+//      console.log('person',person)
       return person.name.toLowerCase().includes(event.target.value.toLocaleLowerCase());
       }))
     setNewFilter(event.target.value);
 //debug
-    console.log('filterPerson:'.filterPersons)
+//    console.log('filterPerson:'.filterPersons)
   }
 
 
@@ -72,6 +72,8 @@ const App = () => {
     setPersons(persons.concat(phoneObject));
     setNewName('');
     setNewNumber('');
+    setFilterPersons([]);
+    
 //Debug
     //console.log("personas", persons)
   }
@@ -103,17 +105,17 @@ const App = () => {
           {!(filterPersons.length===0 && newFilter === '') ? 
               filterPersons.map((person, i) =>{
 //debug
-                console.log((filterPersons.length===0 || newFilter === ''))
-                console.log ('length', filterPersons.length)
-                console.log('newFilter:', newFilter)
+//                console.log((filterPersons.length===0 || newFilter === ''))
+//                console.log ('length', filterPersons.length)
+//                console.log('newFilter:', newFilter)
                return <Personas key={i} persona={person} />}
               ) 
             : 
               persons.map((person, i) =>{
 //debug
-                console.log('otro-boolean', !(filterPersons.length===0 && newFilter === ''))
-                console.log ('length-otro', filterPersons.length)
-                console.log('newFilter-otro:', newFilter)                
+//                console.log('otro-boolean', !(filterPersons.length===0 && newFilter === ''))
+//                console.log ('length-otro', filterPersons.length)
+//                console.log('newFilter-otro:', newFilter)                
                 return <Personas key={i} persona={person} />}
               ) 
           }
