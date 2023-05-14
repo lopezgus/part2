@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './App.css';
+import Personas from './components/personas';
+import Filter from './components/filter';
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -14,15 +16,11 @@ const App = () => {
   const [filterPersons, setFilterPersons] = useState([]);
   
 
-// React Componet
-  const Personas = ({ persona }) => {
-    return <p> {persona.name}  {persona.number}</p>
-  };
-
   //handler of inputs: names
   const handlenewName = (event) => {
     setNewName(event.target.value);
   }
+
 
   //handler of inputs: numbers
   const handlenewNumber = (event) => {
@@ -74,11 +72,16 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <div>
       <p>
-          filter shown whith: <input value={newFilter} onChange={handlenewFilter} />
+        < Filter newFilter={newFilter} handlenewFilter={handlenewFilter} />
+      </p>  
+      {/*
+      <p>
+          Filter value={newFilter} onChange={handlenewFilter} />
       </p>
-      <h2>Add a new</h2>
+      */}
+      <div>
+        <h2>Add a new</h2>
       </div>
       <form onSubmit={addPerson}>
         <div>
