@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import Personas from './components/personas';
+//import Personas from './components/personas';
 import Filter from './components/filter';
+import Numbers from './components/Numbers';
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -21,7 +22,6 @@ const App = () => {
     setNewName(event.target.value);
   }
 
-
   //handler of inputs: numbers
   const handlenewNumber = (event) => {
     setNewNumber(event.target.value);
@@ -34,7 +34,6 @@ const App = () => {
       }))
     setNewFilter(event.target.value);
   }
-
 
   //-----------------------------------
   // add new person to phonebook
@@ -73,22 +72,19 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <p>
-        < Filter newFilter={newFilter} handlenewFilter={handlenewFilter} />
+        <Filter newFilter={newFilter} handlenewFilter={handlenewFilter} />
       </p>  
-      {/*
-      <p>
-          Filter value={newFilter} onChange={handlenewFilter} />
-      </p>
-      */}
       <div>
         <h2>Add a new</h2>
       </div>
       <form onSubmit={addPerson}>
         <div>
-          name: <input value={newName} onChange={handlenewName} />
+          <label> name: </label> 
+          <input value={newName} onChange={handlenewName} />
         </div>
         <div>
-          Number: <input value={newNumber} onChange={handlenewNumber} />
+          <label> Number: </label> 
+          <input value={newNumber} onChange={handlenewNumber} />
         </div>
         <div>
           <button type="submit">add</button>
@@ -97,15 +93,7 @@ const App = () => {
       <h2>Numbers</h2>
       <>
         <div>
-          {!(filterPersons.length===0 && newFilter === '') ? 
-              filterPersons.map((person, i) =>{
-               return <Personas key={i} persona={person} />}
-              ) 
-            : 
-              persons.map((person, i) =>{
-                return <Personas key={i} persona={person} />}
-              ) 
-          }
+          < Numbers newFilter={newFilter} filterPersons={filterPersons} persons={persons} />
         </div>
       </>
     </div>
